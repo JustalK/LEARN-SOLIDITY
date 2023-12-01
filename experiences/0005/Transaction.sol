@@ -2,13 +2,22 @@
 pragma solidity ^0.8.0;
 
 contract Transaction {
-    mapping(address => uint256) public addresses;
+    address public owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
     function fund() public payable {
-        require(msg.value >= 1 * 10 ** 18, "Not enough money paid!");
-        addresses[msg.sender] += msg.value;
+        require(msg.value >= 100, "Not enough money paid!");
+        // payable(address(this)).transfer(msg.value);
     }
 
     function withdraw() public payable {
-        payable(msg.sender).transfer(address(this).balance);
+        payable(owner).transfer(address(this).balance);
+    }
+
+    function getBalance() public view returns (uint) {
+        return address(this).balance;
     }
 }
