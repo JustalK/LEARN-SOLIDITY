@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract Transaction {
+contract TransactionFunder {
+    mapping(address => uint256) public funderMoney;
+    address[] public funders;
     address public owner;
 
     constructor() {
@@ -14,15 +16,18 @@ contract Transaction {
     }
 
     function fund() public payable {
-        require(msg.value >= 100, "Not enough money paid!");
-        // payable(address(this)).transfer(msg.value);
+        funderMoney[msg.sender] += msg.value;
+        funders.push(msg.sender);
     }
+
+
 
     function withdraw() public onlyOwner payable {
         payable(owner).transfer(address(this).balance);
-    }
-
-    function getBalance() public view returns (uint) {
-        return address(this).balance;
+        for (uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++) {
+            address funder = funders[funderIndex];
+            funderMoney[funder] = 0;
+        }
+        funders = new address[](0);
     }
 }

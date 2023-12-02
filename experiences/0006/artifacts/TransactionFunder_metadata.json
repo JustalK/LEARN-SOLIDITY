@@ -18,13 +18,38 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getBalance",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "funderMoney",
 				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "funders",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -64,7 +89,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"experiences/0005/Transaction.sol": "Transaction"
+			"experiences/0006/TransactionFunder.sol": "TransactionFunder"
 		},
 		"evmVersion": "shanghai",
 		"libraries": {},
@@ -78,12 +103,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"experiences/0005/Transaction.sol": {
-			"keccak256": "0x204071469c29cff3229d6165f5dee1f3c240398c123dd889cfc71d4871c5bd69",
+		"experiences/0006/TransactionFunder.sol": {
+			"keccak256": "0x8fd5f0bdfd55f90f5d86977d43a880586628384b51ad99b94672cf0d42819267",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3e3d6b1c44123eac2649d58cb72f91e620a070d7d4e75222cbb681912b9b622e",
-				"dweb:/ipfs/Qmb39aPD1JNDguuFmqwD6mEZLELJi67cQaLwMH9jw4Q3dU"
+				"bzz-raw://28eff88b3ed03adebd7b684420f456cc7002e0c2de878c6d9121df79cc704074",
+				"dweb:/ipfs/QmccdeLKf45CxpkB5bHczktTYwAenqVA4K7XrG9WswtF7h"
 			]
 		}
 	},
