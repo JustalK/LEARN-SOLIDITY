@@ -8,3 +8,4 @@
 - **Experience 0006:** Save the funders
 - **Experience 0007:** Constant and immutable - Gas Optimization
 - **Experience 0007:** Revert vs Assert vs Require - Gas Optimization
+- **Experience 0008:** Receive VS Fallback

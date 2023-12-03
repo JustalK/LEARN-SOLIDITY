@@ -1,0 +1,80 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "result",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"experiences/0009/FallbackExample.sol": "FallbackExample"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"experiences/0009/FallbackExample.sol": {
+			"keccak256": "0xf7311ef105d3d196c05b878d3b86933904a227f1a7e9816be4e0b803abc3e88c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1078bcceff27c8e184db3f4c7a2ab597f4e2315851a6b62038cf41edbbb6f09c",
+				"dweb:/ipfs/QmeK2fnDgPAX9tCbxXQuYVoKZ7QW6AFmHZmVYY5ugiMbyc"
+			]
+		}
+	},
+	"version": 1
+}
