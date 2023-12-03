@@ -38,7 +38,59 @@
 			},
 			{
 				"inputs": [],
+				"name": "NUMBER_SMALL",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNumber2",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNumber3",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNumber4",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -60,6 +112,19 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTheSameNumberWithAVeryLongNameForTheFunction",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
@@ -117,11 +182,11 @@
 	},
 	"sources": {
 		"experiences/0007/ImmutableConstant.sol": {
-			"keccak256": "0xf4ebbc86f3d12841b768a30d8b6873f7575ca1322606e18935eaf5c309e80568",
+			"keccak256": "0xc8791e7edd7f500ddebe2303f8498a8a96099172cd345fd4bbc2bbfc9eabe19f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://55991ba228059d6bbfc57a43e6348414005af8a1b027e786fa250790c8b3c68c",
-				"dweb:/ipfs/QmcTq25FzPGPhFhDi77fDVF5dQSuADSYdHnzwrNjDVS1qx"
+				"bzz-raw://8a0909340d9a9a014a348ff91ccedd142398150772092d18b184a3061d054cf2",
+				"dweb:/ipfs/QmesCfgzPfN33cUjk3MaSbfbvGW2Zq2p14rumzZMEp7Xxg"
 			]
 		}
 	},

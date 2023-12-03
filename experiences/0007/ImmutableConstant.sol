@@ -2,8 +2,9 @@
 pragma solidity ^0.8.0;
 
 contract ImmutableConstant {
+    uint8 public constant NUMBER_SMALL = 50;
     uint256 public constant NUMBER = 50; // <= Directly saved in byteCode on the contract
-    uint256 public NUMBER_NOT_CONSTANT = 50; // <= vs stored on the contract
+    uint256 public NUMBER_NOT_CONSTANT = 50; // <= vs stored on the contract, the compiler has to create a getter
     // Calcul gas price
     // Price per gas: https://etherscan.io/gastracker
     // Convert Gwei: https://eth-converter.com/
@@ -24,12 +25,32 @@ contract ImmutableConstant {
         owner = msg.sender;
     }
 
-    // 376 gas
+    // 420 gas
     function getNumber() public pure returns (uint256) {
         return NUMBER;
     }
 
-    // 2432 gas
+    // 382 gas
+    function getNumber2() public pure returns (uint256) {
+        return NUMBER_SMALL;
+    }
+
+    // 361 gas
+    function getNumber3() public pure returns (uint8) {
+        return NUMBER_SMALL;
+    }
+
+    // 427 Gas
+    function getNumber4() public pure returns (uint256) {
+        return NUMBER_SMALL;
+    }
+
+    // 382 gas
+    function getTheSameNumberWithAVeryLongNameForTheFunction() public pure returns (uint256) {
+        return NUMBER_SMALL;
+    }
+
+    // 2477 gas
     function getNumberNotConstant() public view returns (uint256) {
         return NUMBER_NOT_CONSTANT;
     }
