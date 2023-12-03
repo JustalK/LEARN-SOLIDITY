@@ -3,10 +3,10 @@ const fs = require("fs");
 
 async function main() {
   const provider = new ethers.providers.JsonRpcProvider(
-    "http://127.0.0.1:7545"
+    "http://192.168.0.25:7545"
   );
   const wallet = new ethers.Wallet(
-    "0x4760ba7cd665cbae197b8fab3386aeee15c4b70dfc9e1f7179a776044ed43c37",
+    "0x49644116b78d8901dbc2395b8b841c282e8fc1aff1fe397aa85939e413bc2669",
     provider
   );
   const abi = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.abi", "utf8");
@@ -16,7 +16,7 @@ async function main() {
   );
   const contractFactory = new ethers.ContractFactory(abi, binary, wallet);
   console.log("Deploying...");
-  const contract = await contractFactory.deploy();
+  const contract = await contractFactory.deploy({ gasPrice: 100000000000 });
   console.log(contract);
 }
 
