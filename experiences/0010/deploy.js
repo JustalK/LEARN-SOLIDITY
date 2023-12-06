@@ -18,7 +18,7 @@ async function main() {
   // console.log("Deploying...");
   const contract = await contractFactory.deploy({ gasPrice: 100000000000 });
   // console.log(contract.deploymentReceipt);
-  const transactionReceipt = await contract.deployTransaction.wait(1);
+  // const transactionReceipt = await contract.deployTransaction.wait(1);
   // console.log(transactionReceipt);
   // const nonce = await wallet.getTransactionCount();
   // const tx = {
@@ -35,6 +35,12 @@ async function main() {
   // console.log(sentTxResponse);
 
   const currentFavoriteNumber = await contract.retrieve();
+  console.log(`Current Favorite Number: ${currentFavoriteNumber.toString()}`)
+  // const transactionResponse = await contract.store(1000000000000000000000000000000000) <= Wont work because JS does not allow it. Ethers is using big number under the hood
+  const transactionResponse = await contract.store("1000000000000000000000000000000000")
+  const transactionReceipt = await transactionResponse.wait(1);
+  const updatedFavoriteNumber = await contract.retrieve();
+  console.log(`Updated Favorite Number: ${updatedFavoriteNumber.toString()}`)
 }
 
 main()
