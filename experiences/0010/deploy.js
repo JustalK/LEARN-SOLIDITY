@@ -1,14 +1,16 @@
 const ethers = require("ethers");
 const fs = require("fs");
+require("dotenv").config();
 
 async function main() {
-  const provider = new ethers.providers.JsonRpcProvider(
-    "http://127.0.0.1:7545"
+  const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
+  //onst wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+  const encryptedJsonKey = fs.readFileSync("./encryptedKey.json", "utf8");
+  let wallet = new ethers.Wallet.fromEncryptedJsonSync(
+    encryptedJsonKey,
+    process.env.PRIVATE_KEY_PASSWORD
   );
-  const wallet = new ethers.Wallet(
-    "0x4760ba7cd665cbae197b8fab3386aeee15c4b70dfc9e1f7179a776044ed43c37",
-    provider
-  );
+  wallet = await wallet.connect(provider);
   const abi = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.abi", "utf8");
   const binary = fs.readFileSync(
     "./SimpleStorage_sol_SimpleStorage.bin",
@@ -35,12 +37,14 @@ async function main() {
   // console.log(sentTxResponse);
 
   const currentFavoriteNumber = await contract.retrieve();
-  console.log(`Current Favorite Number: ${currentFavoriteNumber.toString()}`)
+  console.log(`Current Favorite Number: ${currentFavoriteNumber.toString()}`);
   // const transactionResponse = await contract.store(1000000000000000000000000000000000) <= Wont work because JS does not allow it. Ethers is using big number under the hood
-  const transactionResponse = await contract.store("1000000000000000000000000000000000")
+  const transactionResponse = await contract.store(
+    "1000000000000000000000000000000000"
+  );
   const transactionReceipt = await transactionResponse.wait(1);
   const updatedFavoriteNumber = await contract.retrieve();
-  console.log(`Updated Favorite Number: ${updatedFavoriteNumber.toString()}`)
+  console.log(`Updated Favorite Number: ${updatedFavoriteNumber.toString()}`);
 }
 
 main()
